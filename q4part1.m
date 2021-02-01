@@ -7,6 +7,7 @@ s = s(1);
 x = 1:s;
 
 %inp = input_wave(1:100);
+l =3;
 y = UpSampler(input_wave , l);
 
 %####in this part we draw part of wave and this part after interpolation:
