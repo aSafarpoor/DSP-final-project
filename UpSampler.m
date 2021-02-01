@@ -2,7 +2,6 @@ function y= upsampler(x,l)
     s = size(x);
     s = s(1);
     y = [];
-    l = 3;
     ll = zeros(1,l-1);
     for ii = 1:s-1
         y = [y , x(ii)];
@@ -10,6 +9,15 @@ function y= upsampler(x,l)
     end
     y = [y ,  x(s)] ;
     y = y' ; 
+    
+    %####define lowpass filter 
+    lpfilter = fir1(10 , 1/ l, 'low');
+    %plot(lpfilter)
+    %title('lpfilter')
+    
+    %####use filter for interpolation
+    y = filter(lpfilter,1,y);
+    
 end
 
     
