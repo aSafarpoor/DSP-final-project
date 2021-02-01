@@ -7,16 +7,7 @@ s = s(1);
 x = 1:s;
 
 %inp = input_wave(1:100);
-l = 3;
 y = UpSampler(input_wave , l);
-
-%####define lowpass filter 
-lpfilter = fir1(10 , pi/ (2 * l), 'low');
-%plot(lpfilter)
-%title('lpfilter')
-
-%####use filter for interpolation
-y = filter(lpfilter,1,y);
 
 %####in this part we draw part of wave and this part after interpolation:
 figure
