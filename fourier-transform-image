@@ -1,0 +1,24 @@
+img = imread('well2.png');
+img = im2bw(img,0.4);
+
+I=img;
+%F=fftshift(fft2(I));   
+F=fft2(I);   
+phase = angle(F);
+%IF =ifft2(fftshift(F));
+absolute = abs(F) ; 
+
+[x,y]  = size(absolute);
+for ii=1:x
+    for jj=1:y
+        if ii>1000 || jj>200
+            absolute(ii,jj)  = 0;
+        end
+    end
+end
+
+fftimg = complex(absolute .* cos(phase),absolute .* sin(phase) ); 
+%img =ifft2(fftshift(newimg));
+img =ifft2(fftimg);
+
+imshow(img);
