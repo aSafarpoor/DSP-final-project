@@ -32,6 +32,7 @@ fftimg = complex(absolute .* cos(phase),absolute .* sin(phase) );
 img =ifft2(ifftshift(fftimg));
 %img =ifft2(fftimg);
 figure
+
 imshow(img);
 
 
